@@ -4,13 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { FaSearch, FaGithub, FaMoon, FaSun } from 'react-icons/fa';
 import TemplateList from '../components/TemplateList';
 import MemeEditor from '../components/MemeEditor';
-import {
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs';
+
 
 export default function Home() {
   const [selectedTemplate, setSelectedTemplate] = useState(null);
@@ -74,18 +68,7 @@ export default function Home() {
             <FaGithub size={22} />
           </a>
 
-          <SignedOut>
-            <SignInButton />
-            <SignUpButton>
-              <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm h-10 px-4 cursor-pointer">
-                Sign Up
-              </button>
-            </SignUpButton>
-          </SignedOut>
-
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+         
         </div>
       </header>
 
