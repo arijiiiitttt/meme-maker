@@ -15,10 +15,10 @@ export default function Home() {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme === 'dark') {
       setIsDarkMode(true);
-      document.documentElement.classList.add('dark'); // Add dark class to html
+      document.documentElement.classList.add('dark'); 
     } else {
       setIsDarkMode(false);
-      document.documentElement.classList.remove('dark'); // Remove dark class from html
+      document.documentElement.classList.remove('dark'); 
     }
   }, []);
 
@@ -58,7 +58,7 @@ export default function Home() {
             {isDarkMode ? <FaSun /> : <FaMoon />}
           </button>
           <a
-            href="YOUR_GITHUB_LINK_HERE" // Replace with your actual GitHub link
+            href="https://github.com/arijiiiitttt/memehub" 
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-500 hover:text-gray-700 transition"
