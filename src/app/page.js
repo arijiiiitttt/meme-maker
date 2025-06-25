@@ -4,6 +4,13 @@ import React, { useState, useEffect } from 'react';
 import { FaSearch, FaGithub, FaMoon, FaSun } from 'react-icons/fa';
 import TemplateList from '../components/TemplateList';
 import MemeEditor from '../components/MemeEditor';
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs';
 
 export default function Home() {
   const [selectedTemplate, setSelectedTemplate] = useState(null);
@@ -11,14 +18,13 @@ export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check local storage for theme preference on initial load
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme === 'dark') {
       setIsDarkMode(true);
-      document.documentElement.classList.add('dark'); 
+      document.documentElement.classList.add('dark');
     } else {
       setIsDarkMode(false);
-      document.documentElement.classList.remove('dark'); 
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
@@ -50,6 +56,7 @@ export default function Home() {
           <span className="text-black dark:text-white">Meme</span>
           <span className="bg-orange-400 text-white rounded-xl px-3 py-1 text-base">Duniya</span>
         </div>
+
         <div className="flex items-center gap-4">
           <button
             onClick={toggleDarkMode}
@@ -57,14 +64,28 @@ export default function Home() {
           >
             {isDarkMode ? <FaSun /> : <FaMoon />}
           </button>
+
           <a
-            href="https://github.com/arijiiiitttt/memehub" 
+            href="https://github.com/arijiiiitttt/memehub"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-500 hover:text-gray-700 transition"
+            className="text-gray-500 hover:text-gray-700 dark:text-gray-300 transition"
           >
-            <FaGithub size={24} />
+            <FaGithub size={22} />
           </a>
+
+          <SignedOut>
+            <SignInButton />
+            <SignUpButton>
+              <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm h-10 px-4 cursor-pointer">
+                Sign Up
+              </button>
+            </SignUpButton>
+          </SignedOut>
+
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </div>
       </header>
 
@@ -106,7 +127,7 @@ export default function Home() {
       </main>
 
       <footer className="text-center Galter text-sm text-gray-400 dark:text-gray-500 pt-30 pb-3 w-full">
-        build with ❤️ by{''} <a href="" className="text-blue-500">Arijit</a>
+        build with ❤️ by <a href="https://github.com/arijiiiitttt" className="text-blue-500">Arijit</a>
       </footer>
     </div>
   );
