@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaSearch, FaGithub, FaMoon, FaSun } from 'react-icons/fa';
 import TemplateList from '../components/TemplateList'; 
 import MemeEditor from '../components/MemeEditor'; 
